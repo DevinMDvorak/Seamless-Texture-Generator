@@ -22,6 +22,8 @@ namespace WindowsFormsApp1 {
 			BrickHeightMap.SetPictureBoxes(GeneratedImage, GeneratedNormal);
 			// Send image size to helper script
 			Helper.SetImageSize((int)ImageHeightField.Value, (int)ImageHeightField.Value);
+			// Call start function of bricktexture class
+			BrickTexture.Start();
 
 			// All of the panels should be hidden at the start
 			BrickPanel.Visible = false;
@@ -59,6 +61,11 @@ namespace WindowsFormsApp1 {
 		private void BrickCementColorButton_Click(object sender, EventArgs e) {
 			BrickCementColorDialog.ShowDialog();
 			BrickCementColorButton.BackColor = BrickCementColorDialog.Color;
+		}
+
+		private void AccentBrickButton_Click(object sender, EventArgs e) {
+			BrickAccentForm newForm = new BrickAccentForm();
+			newForm.ShowDialog();
 		}
 
 		// This section of code covers everything on the menu bar

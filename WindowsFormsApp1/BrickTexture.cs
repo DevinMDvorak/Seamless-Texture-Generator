@@ -16,10 +16,25 @@ public static class BrickTexture {
 	private static float CementRatio;
 	private static Color MainColor;
 	private static Color CementColor;
-	private static Color[] AccentColors;
+
+	// These deal with the accent bricks
+	// First array contains the amount of each accent color and the other array contains the colors (paired up by index)
+	// Give these private access later on
+	public static int[] AccentCounts;
+	public static Color[] AccentColors;
 
 	private static int CementColorVariety = 10;
 	private static int AccentColorPercent = 10;
+
+	// Call this function when the program loads up, this should only be called once
+	public static void Start() {
+		AccentCounts = new int[10];
+		AccentColors = new Color[10];
+		for (int i = 0; i < 10; i++) {
+			AccentCounts[i] = 0;
+			AccentColors[i] = Color.White;
+		}
+	}
 
 	// This array is used for creating areas of switching color gradients
 	// Instead of random colors it will help create more flowing colors
@@ -94,17 +109,17 @@ public static class BrickTexture {
 		}
 	}*/
 
-	public static void FillAccentBrick(int x, int y) {
+	public static void FillAccentBrick(int x, int y, int AccentColorIndex) {
 		if (Helper.ColorComparison(((Bitmap)GeneratedImage.Image).GetPixel(x, y), MainColor)) {
-			((Bitmap)GeneratedImage.Image).SetPixel(x, y, Color.Brown);
+			((Bitmap)GeneratedImage.Image).SetPixel(x, y, AccentColors[AccentColorIndex]);
 		}
 		else {
 			return;
 		}
-		FillAccentBrick(Helper.ImageRange(false, x - 1), y);
-		FillAccentBrick(Helper.ImageRange(false, x + 1), y);
-		FillAccentBrick(x, Helper.ImageRange(true, y - 1));
-		FillAccentBrick(x, Helper.ImageRange(true, y + 1));
+		FillAccentBrick(Helper.ImageRange(false, x - 1), y, AccentColorIndex);
+		FillAccentBrick(Helper.ImageRange(false, x + 1), y, AccentColorIndex);
+		FillAccentBrick(x, Helper.ImageRange(true, y - 1), AccentColorIndex);
+		FillAccentBrick(x, Helper.ImageRange(true, y + 1), AccentColorIndex);
 	}
 
 	// Pass a pixel coordinate to this function to receive the average noise value (-1 ... 1) of it's corners
@@ -323,14 +338,14 @@ public static class BrickTexture {
 
 
 		// Here we will add our accent bricks
-		for (int index = 0; index < 5; index++) {
-			for (int i = rand.Next(GeneratedImage.Height); i < GeneratedImage.Height; i++) {
-				for (int j = rand.Next(GeneratedImage.Width); j < GeneratedImage.Width; j++) {
-					if (Helper.ColorComparison(((Bitmap)GeneratedImage.Image).GetPixel(j, i), MainColor)) {
-						FillAccentBrick(j, i);
-						i = GeneratedImage.Height;
-						j = GeneratedImage.Width;
-					}
+		for (int index = 0; index < 10; index++) {
+			int count = AccentCounts[index];
+			while (count > 0) {
+				int x = rand.Next(GeneratedImage.Width);
+				int y = rand.Next(GeneratedImage.Height);
+				if (Helper.ColorComparison(((Bitmap)GeneratedImage.Image).GetPixel(x, y), MainColor)) {
+					FillAccentBrick(x, y, index);
+					count--;
 				}
 			}
 		}

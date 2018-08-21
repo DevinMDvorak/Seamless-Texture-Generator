@@ -55,6 +55,7 @@
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.GeneratedNormal = new System.Windows.Forms.PictureBox();
+			this.AccentBrickButton = new System.Windows.Forms.Button();
 			this.BrickPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.BrickCementRatio)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BrickColumnsField)).BeginInit();
@@ -70,6 +71,7 @@
 			// 
 			// BrickPanel
 			// 
+			this.BrickPanel.Controls.Add(this.AccentBrickButton);
 			this.BrickPanel.Controls.Add(this.GenerateBrick);
 			this.BrickPanel.Controls.Add(this.BrickCementRatio);
 			this.BrickPanel.Controls.Add(this.BrickCementRatioLabel);
@@ -379,6 +381,16 @@
 			this.GeneratedNormal.TabIndex = 4;
 			this.GeneratedNormal.TabStop = false;
 			// 
+			// AccentBrickButton
+			// 
+			this.AccentBrickButton.Location = new System.Drawing.Point(6, 200);
+			this.AccentBrickButton.Name = "AccentBrickButton";
+			this.AccentBrickButton.Size = new System.Drawing.Size(128, 23);
+			this.AccentBrickButton.TabIndex = 8;
+			this.AccentBrickButton.Text = "Edit Accent Bricks";
+			this.AccentBrickButton.UseVisualStyleBackColor = true;
+			this.AccentBrickButton.Click += new System.EventHandler(this.AccentBrickButton_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,7 +404,7 @@
 			this.Controls.Add(this.ImageHeightField);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Seamless Texture Generator";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.BrickPanel.ResumeLayout(false);
 			this.BrickPanel.PerformLayout();
@@ -440,6 +452,7 @@
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.PictureBox GeneratedNormal;
 		private System.Windows.Forms.ToolStripMenuItem exportNormalMapToolStripMenuItem;
+		private System.Windows.Forms.Button AccentBrickButton;
 	}
 }
 

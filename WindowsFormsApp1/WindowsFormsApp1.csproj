@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrickAccentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrickAccentForm.Designer.cs">
+      <DependentUpon>BrickAccentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BrickHeightMap.cs" />
     <Compile Include="BrickTexture.cs" />
     <Compile Include="Form1.cs">
@@ -56,6 +62,9 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BrickAccentForm.resx">
+      <DependentUpon>BrickAccentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
