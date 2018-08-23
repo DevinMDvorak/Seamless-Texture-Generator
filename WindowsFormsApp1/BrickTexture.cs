@@ -5,8 +5,7 @@ using System.Timers;
 using System.Collections.Generic;
 
 public static class BrickTexture {
-	// This timer variable lets me check which areas of the code are taking the most time
-
+	// These are the two images that we are creating
 	private static PictureBox GeneratedImage;
 	private static PictureBox GeneratedNormal;
 
@@ -23,8 +22,8 @@ public static class BrickTexture {
 	public static int[] AccentCounts;
 	public static Color[] AccentColors;
 
+	// Max amount that an RGB value can be off from the cements main color
 	private static int CementColorVariety = 10;
-	private static int AccentColorPercent = 10;
 
 	// Call this function when the program loads up, this should only be called once
 	public static void Start() {
@@ -99,16 +98,9 @@ public static class BrickTexture {
 			}
 		}
 	}
-	/*public static void CurveCorner(int up, int left, int x, int y, List<int> list) {
-		int index = 0;
 
-		for (int i = y; i < y + list.Count * up; i += up) {
-			for (int j = x; j < list[index]; j += left) {
-
-			}
-		}
-	}*/
-
+	// This is basically a recursive flood fill function
+	// It will fill up any brick area with the chosen color
 	public static void FillAccentBrick(int x, int y, int AccentColorIndex) {
 		if (Helper.ColorComparison(((Bitmap)GeneratedImage.Image).GetPixel(x, y), MainColor)) {
 			((Bitmap)GeneratedImage.Image).SetPixel(x, y, AccentColors[AccentColorIndex]);
@@ -128,14 +120,14 @@ public static class BrickTexture {
 		averageNoise = SmoothNoiseArray[x, y] + SmoothNoiseArray[Helper.ImageRange(false, x + 1), y];
 		averageNoise += SmoothNoiseArray[x, Helper.ImageRange(true, y + 1)] + SmoothNoiseArray[Helper.ImageRange(false, x + 1), Helper.ImageRange(true, y + 1)];
 		averageNoise /= 4.0;
-
-		//Console.WriteLine(averageNoise);
+		
 		return averageNoise;
 	}
 
-	// This is called when generate is clicked from the brick panel
+	// Main function that actually creates our texture
+	// This will be called from out setup function which is called from the main form
 	public static void GenerateTexture() {
-		Console.WriteLine(Rows + " " + Columns + " " + CementRatio + " " + MainColor + " " + CementColor);
+		//Console.WriteLine(Rows + " " + Columns + " " + CementRatio + " " + MainColor + " " + CementColor);
 		Console.WriteLine("Starting to generate brick texture");
 		GeneratedImage.Image = new Bitmap(GeneratedImage.Width, GeneratedImage.Height);
 
