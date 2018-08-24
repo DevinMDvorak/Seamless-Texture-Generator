@@ -7,3 +7,4 @@ Here is an example of the current progress:
 <img src="https://github.com/DevinMDvorak/Seamless-Texture-Generator/blob/master/TextureTest.jpg?raw=true" width="256" height="256" title="Texture"> <img src="https://github.com/DevinMDvorak/Seamless-Texture-Generator/blob/master/NormalTest.jpg?raw=true" width="256" height="256" title="Normal Map">
 
 <img src="https://github.com/DevinMDvorak/Seamless-Texture-Generator/blob/master/BrickMaterial.PNG?raw=true" title="Material">
+<img src="https://github.com/DevinMDvorak/Seamless-Texture-Generator/blob/master/BrickMaterial2.PNG?raw=true" title="Material">
