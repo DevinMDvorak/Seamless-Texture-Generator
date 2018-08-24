@@ -5,5 +5,5 @@ At the moment I am working on a brick wall material that will have plenty of opt
 Here is an example of the current progress:
 
 ![Texture](https://github.com/DevinMDvorak/Seamless-Texture-Generator/blob/master/TextureTest.jpg?raw=true)
-![Normal Map]()
-![Material]()
+![Normal Map](https://github.com/DevinMDvorak/Seamless-Texture-Generator/blob/master/NormalTest.jpg?raw=true)
+![Material](https://github.com/DevinMDvorak/Seamless-Texture-Generator/blob/master/BrickMaterial.PNG?raw=true)
